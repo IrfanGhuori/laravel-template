@@ -91,12 +91,20 @@
               <h5 class="mb-3">Write to us</h5>
               <form action="queries" method="post">
                 @csrf
-                <div class="mb-4"><input class="form-control bg-white" type="text" name="username" placeholder="Your Name" required="required"></div>
-                <span>{{ @errors('username')
-                    $messages;
-                @enderror}}</span>
-                <div class="mb-4"><input class="form-control bg-white" type="text" name="useremail" placeholder="Email" required="required"></div>
-                <div class="mb-4"><textarea class="form-control bg-white" rows="11" placeholder="Enter your descriptions here..." required="required"></textarea></div><button class="btn btn-md-lg btn-primary" type="Submit"> <span class="color-white fw-600">Send Now</span></button>
+                <div class="mb-4"><input class="form-control bg-white" type="text" name="uUser" placeholder="Your Name" >
+                  <small> @error('uUser'){{ $message }} @enderror </small>
+                </div>
+              
+                <div class="mb-4"><input class="form-control bg-white" type="text" name="uEmail" placeholder="Email" >
+                  <small> @error('uEmail'){{ $message }} @enderror </small>
+                </div>
+                
+                <div class="mb-4"><textarea class="form-control bg-white" rows="11" name="uDetails" placeholder="Enter your descriptions here..." ></textarea>
+                  <small> @error('uDetails'){{ $message }} @enderror </small>
+                </div>
+                
+                <button class="btn btn-md-lg btn-primary" type="Submit"> <span class="color-white fw-600">Send Now</span></button>
+                
               </form>
             </div>
           </div>
