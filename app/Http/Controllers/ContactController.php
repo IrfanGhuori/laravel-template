@@ -20,16 +20,21 @@ class ContactController extends Controller
         $this->UserName = $data->input('uUser');
         $this->Details = $data->input('uDetails');   
         if($this->CheckEmailAddress() === false)
-        {
-      
-             return Redirect::back()->withErrors(['msg' => 'This email address already in use']);
+        {          return Redirect::back()->withErrors(['msg' => 'This email address already in use']);
         }else{
 
             $this->validate($data, [
                 "uUser" => "required|min:4",
-                "uEmail" => "required|email:rfc,dns|unique:users",
+                "uEmail" => "required|email:rfc,dns",
                 "uDetails" => "required|min:4"
             ]);
+
+           
+            $qr = DB::table('contacts')->insert(["username" => $this->UserName, "useremail" =>  $this->EmailAddress, "details" => $this->Details]);
+            if($qr == true)
+            {
+                return Redirect::back()->withErrors(['success' => 'We have received your message, out team will be contact you as soon as possible for us']);  
+            }
         } 
     }
 

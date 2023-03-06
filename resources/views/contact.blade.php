@@ -89,6 +89,7 @@
           <div class="card">
             <div class="card-body h-100 p-5">
               <h5 class="mb-3">Write to us</h5>
+              <small> @error('success'){{ $message }} @enderror </small>
               <form action="sendform" method="post">
                 @csrf
                 <div class="mb-4"><input class="form-control bg-white" type="text" name="uUser" placeholder="Your Name" value="Irfan">
