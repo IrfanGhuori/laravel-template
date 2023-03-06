@@ -89,22 +89,36 @@
           <div class="card">
             <div class="card-body h-100 p-5">
               <h5 class="mb-3">Write to us</h5>
-              <form action="queries" method="post">
+              <form action="sendform" method="post">
                 @csrf
-                <div class="mb-4"><input class="form-control bg-white" type="text" name="uUser" placeholder="Your Name" >
+                <div class="mb-4"><input class="form-control bg-white" type="text" name="uUser" placeholder="Your Name" value="Irfan">
                   <small> @error('uUser'){{ $message }} @enderror </small>
                 </div>
               
-                <div class="mb-4"><input class="form-control bg-white" type="text" name="uEmail" placeholder="Email" >
+                <div class="mb-4"><input class="form-control bg-white" type="text" name="uEmail" placeholder="Email" value="irfan@hotmail.com">
                   <small> @error('uEmail'){{ $message }} @enderror </small>
+                  <small> @error('msg'){{ $message }} @enderror </small>
                 </div>
                 
-                <div class="mb-4"><textarea class="form-control bg-white" rows="11" name="uDetails" placeholder="Enter your descriptions here..." ></textarea>
+                <div class="mb-4"><textarea class="form-control bg-white" rows="11" name="uDetails" placeholder="Enter your descriptions here..." >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, sunt, distinctio soluta quasi voluptates, iste doloribus quae minima 
+                  eaque blanditiis in dolorum eos sint mollitia molestiae numquam totam? Illo praesentium quaerat, odit ad saepe iusto iure eaque blanditiis 
+                  consequuntur quod, adipisci totam repellendus. Illum explicabo consequuntur nihil voluptatibus tenetur quae qui adipisci sint quam voluptas
+                   id eligendi, dolorum, dicta, soluta dolores eos? At quisquam, dolorum esse provident debitis impedit delectus nisi vero nobis soluta quas
+                    similique deserunt, distinctio veritatis dicta adipisci quaerat ullam vel sit.
+                   Tempore nisi id debitis blanditiis error sequi aliquid aperiam, placeat iure excepturi assumenda deleniti iusto! </textarea>
                   <small> @error('uDetails'){{ $message }} @enderror </small>
                 </div>
                 
                 <button class="btn btn-md-lg btn-primary" type="Submit"> <span class="color-white fw-600">Send Now</span></button>
-                
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+           
+             
               </form>
             </div>
           </div>

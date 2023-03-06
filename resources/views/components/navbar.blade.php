@@ -54,7 +54,7 @@
                   <li><a class="dropdown-item" href="elements/typography">Typography</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown"><a class="nav-link" href="contact" role="button">Contact</a></li>
+              <li class="nav-item dropdown"><a class="nav-link" href="getting-in-touch" role="button">Contact</a></li>
             </ul><a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="https://themewagon.com/themes/elixir/" target="_blank">Purchase</a>
           </div>
         </nav>

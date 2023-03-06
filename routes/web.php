@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactUs;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 // Web link pages
-Route::view('contact', 'contact');
-Route::post('queries',[ContactUs::Class,'CollectData']);
+Route::view('getting-in-touch', 'contact');
+Route::post('sendform',[ContactController::Class, 'SendQuery']);
+
+?>
+
+
